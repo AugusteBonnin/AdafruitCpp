@@ -205,7 +205,7 @@ enum {
 /**************************************************************************/
 class Adafruit_INA219{
  public:
-  Adafruit_INA219(uint8_t addr = INA219_ADDRESS);
+  Adafruit_INA219(uint8_t bus,uint8_t addr = INA219_ADDRESS);
   void setCalibration_32V_2A(void);
   void setCalibration_32V_1A(void);
   void setCalibration_16V_400mA(void);

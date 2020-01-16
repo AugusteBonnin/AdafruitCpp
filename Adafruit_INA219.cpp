@@ -336,11 +336,11 @@ void Adafruit_INA219::setCalibration_16V_400mA(void) {
     @param addr the I2C address the device can be found on. Default is 0x40
 */
 /**************************************************************************/
-Adafruit_INA219::Adafruit_INA219(uint8_t addr) {
+Adafruit_INA219::Adafruit_INA219(uint8_t bus,uint8_t addr) {
   ina219_i2caddr = addr;
   ina219_currentDivider_mA = 0;
   ina219_powerMultiplier_mW = 0.0f;
-  _i2c = new I2C(addr);
+  _i2c = new I2C(bus,addr);
  // Set chip to large range config values to start
   setCalibration_32V_2A();
 }
