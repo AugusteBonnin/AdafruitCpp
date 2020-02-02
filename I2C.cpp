@@ -26,6 +26,7 @@
 #include <stdio.h>      /* Standard I/O functions */
 #include <fcntl.h>
 #include <unistd.h>
+#include <unistd.h>
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 #include <syslog.h>
@@ -91,7 +92,7 @@ uint16_t I2C::read_short(uint8_t address) {
 					_i2caddr, address, strerror(errno));
 			return (-1);
 		} else {
-		msleep(1);
+        usleep(1000);
 			if (read(fd, &(outputBuffer[1]), BUFFER_SIZE) != BUFFER_SIZE) {
 				syslog(LOG_ERR,
 						"Could not read from I2C slave 0x%x, register 0x%x [read_byte():read %s]",

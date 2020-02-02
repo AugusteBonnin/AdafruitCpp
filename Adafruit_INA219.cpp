@@ -25,6 +25,7 @@
  */
 
 #include <syslog.h>
+#include <errno.h>
 #include <string.h>
 
 #include "Adafruit_INA219.h"

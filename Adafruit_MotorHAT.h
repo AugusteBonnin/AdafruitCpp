@@ -77,6 +77,8 @@ public:
 
   void setPin(int pin, int value);
 
+ PWM*getPWM(){return _pwm;}
+
   Adafruit_StepperMotor& getStepper(int num);
   Adafruit_DCMotor& getDC(int num);
   void resetAll();

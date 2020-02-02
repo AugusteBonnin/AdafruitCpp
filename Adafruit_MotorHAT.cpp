@@ -125,8 +125,8 @@ int Adafruit_StepperMotor::oneStep(Direction dir, Style style) {
 	currentstep %= MICROSTEPS * 4;
 
 	// only really used for microstepping, otherwise always on!
-	setPWM(PWMA, 0, pwm_a*16);
-	setPWM(PWMB, 0, pwm_b*16);
+    hat->getPWM()->setPWM(PWMA, 0, pwm_a*16);
+    hat->getPWM()->setPWM(PWMB, 0, pwm_b*16);
 
 	// set up coil energizing!
 	memset(coils,0,sizeof(int)*4);
@@ -233,7 +233,7 @@ void Adafruit_DCMotor::setSpeed(int speed) {
 	if (speed > 255) {
 		speed = 255;
 	}
-	setPWM(PWM, 0, speed*16);
+    hat->getPWM()->setPWM(PWM, 0, speed*16);
 }
 
 Adafruit_MotorHAT::Adafruit_MotorHAT(int addr, int freq) {
